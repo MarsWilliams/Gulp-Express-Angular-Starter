@@ -1,15 +1,19 @@
 {
-  "name": "DIYSkillet",
+  "name": "Gulp AngularJS Express Boilerplate",
   "version": "1.0.0",
   "author": "Mars Williams <metaphor.formation@gmail.com> (http://cargocollective.com/metaphor_formation)",
-  "description": "Servin' up tasty DIY goodness, hot and fresh off the skillet",
+  "description": "Servin' up tasty boilerplate goodness",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MarsWilliams/DIYSkillet.git"
+    "url": "https://github.com/MarsWilliams/Gulp-Express-Angular-Starter"
   },
   "keywords": [
-    "DIY",
-    "hire me!"
+    "Gulp",
+    "Express!",
+    "AngularJS",
+    "Node",
+    "Sass",
+    "tooling"
   ],
   "private": true,
   "engines": {
@@ -39,6 +43,7 @@
     "gulp-notify": "^2.0.0",
     "gulp-protractor": "0.0.11",
     "gulp-rename": "^1.2.0",
+    "gulp-sass": "^1.3.2",
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.1",

@@ -6,6 +6,8 @@ module.exports = {
 
   'styles': {
     'src' : 'app/styles/*.css',
+    // Switch to src below for Sass suport
+    // 'src' : 'app/styles/**/*.scss',
     'dest': 'build/css'
   },
 

@@ -1,7 +1,7 @@
 'use strict';
 
 var AppSettings = {
-  appTitle: 'DIY Skillet',
+  appTitle: 'Boilerplate Goodness',
   apiUrl: '/api/v1'
 };
 

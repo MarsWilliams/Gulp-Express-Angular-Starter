@@ -10,7 +10,7 @@ function HomeCtrl() {
   // ViewModel
   var vm = this;
 
-  vm.title = 'DIY Skillet!';
+  vm.title = 'Boilerplate Goodness!';
 
 }
 
