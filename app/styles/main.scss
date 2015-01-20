@@ -1,0 +1,188 @@
+@import 'vars';
+@import 'typography';
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: $font-color--dark;
+  background-color: $background--light;
+  padding: $half-space;
+}
+
+//Site Width
+$site-width: 100%;
+//Grid Gutter
+$grid-gutter: 20px;
+
+//***Border-box required***\\
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.grid {
+  overflow: hidden;
+  margin-bottom: $grid-gutter;
+}
+
+@mixin grid($breakpoint) {
+  
+  [class*='#{$breakpoint}-'] {
+    @include grid-column($breakpoint);
+    float: left; // Ensures columns continue to float at breakpoints
+  }
+  
+  .#{$breakpoint}-1-6 {
+    width: 16.66%;
+    .inner {
+      background: #B061A2;
+    }
+  }
+  .#{$breakpoint}-1-5 {
+    width: 20%;
+    .inner {
+      background: #3E4289;
+    }
+  }
+  .#{$breakpoint}-1-4 {
+    width: 25%;
+    .inner {
+      background: #9B9689;
+    }
+  }
+  .#{$breakpoint}-1-2 {
+    width: 50%;
+    .inner {
+      background: #BC3D41;
+    }
+  }
+  .#{$breakpoint}-1-3 {
+    width: 33.33%;
+    .inner {
+      background: #DBBA62;
+    }
+  }
+  .#{$breakpoint}-2-3 {
+    width: 66.66%;
+    .inner {
+      background: #A43560;
+    }
+  }
+  .#{$breakpoint}-3-4 {
+    width: 75%;
+    .inner {
+      background: #C49DB8;
+    }
+  }
+  .#{$breakpoint}-3-5 {
+    width: 60%;
+    .inner {
+      background: #8B655C;
+      
+    }
+  }
+  .#{$breakpoint}-4-5 {
+    width: 80%;
+    .inner {
+      background: #E8B36D;
+    }
+  }
+  .#{$breakpoint}-5-6 {
+    width: 83.33%;
+    .inner {
+     background: #345D90; 
+    }
+  }
+  .#{$breakpoint}-1-1 {
+    float: none;
+    width: 100%;
+    padding: 0;
+    .inner {
+     background: #4E563E; 
+    }
+  }
+  // Grid Helpers
+  .#{$breakpoint}view-hidden {
+    display: none;
+  }
+  .#{$breakpoint}view-visible {
+    display: block;
+  }
+  .#{$breakpoint}view-padless {
+    padding-right: 0;
+  }
+  
+  .grid-align-edge-#{$breakpoint} {
+    margin-right: -20px;
+    .#{$breakpoint}view-padded {
+      padding-right: $grid-gutter;
+    }
+    @include breakpoint(small){
+      //margin-right: 0;
+    }
+  }
+}
+
+// Grid Column 
+@mixin grid-column($point) {
+  float: left;
+  padding-right: 20px;
+  &:last-child {
+    padding-right: 0;
+  }
+}
+// Media Query Breakpoints
+@mixin breakpoint($point) {
+  @if $point == site {
+    @media (max-width: $site-width) {
+      @content;
+    }
+  }
+  @if $point == medium {
+    @media (max-width: 1000px) {
+      @content;
+    }
+  }
+  @else if $point == small {
+    @media (max-width: 800px) {
+      @content;
+    }
+  }
+}
+
+// Hide medium/smallview-visible by default
+.mediumview-visible, .smallview-visible {
+  display: none;
+}
+
+
+// ***Grid Setup*** \\
+
+/* Full View Columns */
+@include grid(col);
+/* Medium View Columns */
+@include breakpoint(medium) {
+  @include grid(medium);
+}
+/* Small View Columns */
+@include breakpoint(small) {
+  @include grid(small);
+}
+
+// Demo styles
+.wrapper {
+  max-width: $site-width;
+  background: #fff;
+  padding: $grid-gutter;
+  font-family: Futura, Arial, sans-serif;
+  text-align: center;
+  color: #333;
+  border: 1px solid #333;
+  .inner {
+    padding: $grid-gutter;
+  }
+  h1 {
+    font-size: 2em;
+    margin: 0 0 $grid-gutter 0;
+    @include breakpoint(small) {
+      font-size: 1.33em;
+    }
+  }
+}
