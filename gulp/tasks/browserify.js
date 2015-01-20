@@ -40,7 +40,7 @@ function buildScript(file) {
 
     return stream.on('error', handleErrors)
       .pipe(source(file))
-      .pipe(gulpif(global.isProd, streamify(uglify())))
+      .pipe(gulpif(global.isProd, streamify(uglify(file, 'main.min.js'))))
       .pipe(gulp.dest(config.scripts.dest))
       .pipe(browserSync.reload({ stream: true, once: true }));
   }
